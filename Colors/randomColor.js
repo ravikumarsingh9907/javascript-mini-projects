@@ -79,6 +79,9 @@ const savedColors3 = document.querySelector(".third-color-saved");
 const savedColors4 = document.querySelector(".fourth-color-saved");
 const savedColors5 = document.querySelector(".fifth-color-saved");
 
+//DOM content loaded
+window.addEventListener("DOMContentLoaded", setUpItems);
+
 //Function for alert functionality
 const alertFunc = function (message, className) {
   alert.textContent = message;
@@ -231,6 +234,14 @@ const deleteMe = function () {
 //FUNCTIONALITY: Added to your Saved colors bag section functionality
 submitColorBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  const allColors = {
+    firstColor: `#${copyTextS1.value}`,
+    secondColor: `#${copyTextS2.value}`,
+    thirdColor: `#${copyTextS3.value}`,
+    fourthColor: `#${copyTextS4.value}`,
+    fifthColor: `#${copyTextS5.value}`,
+  };
+
   const id = new Date().getTime().toString();
 
   const element = document.createElement("div");
@@ -239,28 +250,38 @@ submitColorBtn.addEventListener("click", (e) => {
   element.setAttributeNode(attribute);
   element.classList.add("saved-color");
 
-  element.innerHTML = `<input style="background-color: #${copyTextS1.value};" type="text" class="first-color-saved color-input" />
-  <input style="background-color: #${copyTextS2.value};" type="text" class="second-color-saved color-input" />
-  <input style="background-color: #${copyTextS3.value};" type="text" class="third-color-saved color-input" />
-  <input style="background-color: #${copyTextS4.value};" type="text" class="fourth-color-saved color-input" />
-  <input style="background-color: #${copyTextS5.value};" type="text" class="fifth-color-saved color-input" />
+  element.innerHTML = `<input style="background-color: ${allColors.firstColor};" 
+  type="text" class="first-color-saved color-input" />
+  <input style="background-color: ${allColors.secondColor};" 
+  type="text" class="second-color-saved color-input" />
+  <input style="background-color: ${allColors.thirdColor};" 
+  type="text" class="third-color-saved color-input" />
+  <input style="background-color: ${allColors.fourthColor};" 
+  type="text" class="fourth-color-saved color-input" />
+  <input style="background-color: ${allColors.fifthColor};" 
+  type="text" class="fifth-color-saved color-input" />
   <button class="delete"><i class="bx bxs-trash"></i></button>`;
 
   insertColor.appendChild(element);
 
+  // delete select color palette from saved colors
   const deleteMe = element.querySelector(".delete");
   const removeItem = deleteMe.parentElement;
-  console.log(removeItem);
+
   deleteMe.addEventListener("click", () => {
     insertColor.removeChild(removeItem);
+    removeLocalStorage(id);
   });
 
   alertFunc("Your color has been saved 🎉", "hide-alert");
+
+  addToLocalStorage(id, allColors);
 
   formContainer.classList.remove("form-show");
   Overlay.classList.toggle("overlay-hidden");
 });
 
+//clear all saved colors
 function clearAllItems() {
   const savedColors = document.querySelectorAll(".saved-color");
   if (savedColors.length > 0) {
@@ -268,5 +289,81 @@ function clearAllItems() {
       insertColor.removeChild(element);
     });
   }
+
+  localStorage.removeItem("insertColor");
 }
+
+//clear all saved colors
 clearAll.addEventListener("click", clearAllItems);
+
+function addToLocalStorage(id, allColors) {
+  const colors = {
+    id: id,
+    allColors: allColors,
+  };
+  const items = getLocalStorage();
+  console.log(items);
+
+  items.push(colors);
+  localStorage.setItem("insertColor", JSON.stringify(items));
+}
+
+function removeLocalStorage(id) {
+  let items = getLocalStorage();
+
+  items = items.filter(function (item) {
+    if (item.id !== id) {
+      return item;
+    }
+  });
+  localStorage.setItem("insertColor", JSON.stringify(items));
+}
+
+function getLocalStorage() {
+  return localStorage.getItem("insertColor")
+    ? JSON.parse(localStorage.getItem("insertColor"))
+    : [];
+}
+
+// SET UP LOCALSTORAGE
+
+function setUpItems() {
+  let items = getLocalStorage();
+
+  if (items.length > 0) {
+    items.forEach(function (item) {
+      createListItem(item.id, item.allColors);
+    });
+  }
+}
+
+function createListItem(id, allColors) {
+  const element = document.createElement("div");
+  const attribute = document.createAttribute("data-id");
+  attribute.value = id;
+  element.setAttributeNode(attribute);
+  element.classList.add("saved-color");
+
+  element.innerHTML = `<input style="background-color: ${allColors.firstColor};" 
+  type="text" class="first-color-saved color-input" />
+  <input style="background-color: ${allColors.secondColor};" 
+  type="text" class="second-color-saved color-input" />
+  <input style="background-color: ${allColors.thirdColor};" 
+  type="text" class="third-color-saved color-input" />
+  <input style="background-color: ${allColors.fourthColor};" 
+  type="text" class="fourth-color-saved color-input" />
+  <input style="background-color: ${allColors.fifthColor};" 
+  type="text" class="fifth-color-saved color-input" />
+  <button class="delete"><i class="bx bxs-trash"></i></button>`;
+
+  insertColor.appendChild(element);
+
+  // delete select color palette from saved colors
+  const deleteMe = element.querySelector(".delete");
+  const removeItem = deleteMe.parentElement;
+
+  deleteMe.addEventListener("click", () => {
+    insertColor.removeChild(removeItem);
+    removeLocalStorage(id);
+  });
+}

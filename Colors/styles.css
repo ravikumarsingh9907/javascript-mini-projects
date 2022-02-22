@@ -72,7 +72,6 @@ body {
 .clipboard-4,
 .clipboard-5 {
   align-self: end;
-  opacity: 50%;
 }
 
 .lock-color-1,
@@ -81,6 +80,9 @@ body {
 .lock-color-4,
 .lock-color-5 {
   align-self: center;
+}
+
+.under-li-list {
   opacity: 50%;
 }
 
@@ -109,6 +111,15 @@ body {
 .lock-color-5:hover {
   opacity: 100%;
   color: white;
+}
+
+.cut-section-1:hover,
+.cut-section-2:hover,
+.cut-section-3:hover,
+.cut-section-4:hover,
+.cut-section-5:hover {
+  opacity: 100%;
+  color: #fff;
 }
 
 .after-lock-click {
@@ -277,11 +288,10 @@ body {
   z-index: 100;
   display: none;
   background-color: #fff;
-  width: 34%;
 }
 .saved-colors-container {
   padding: 20px;
-  height: 94vh;
+  height: 82.5vh;
   overflow: scroll;
 }
 
