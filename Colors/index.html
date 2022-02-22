@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Color Generator</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="alert-section">
+      <p class="alert hide-alert"> Hello world!
+      </p>
+    </div>
+  </body>
+    <div class="container">
+      <ul class="list-type list-content">
+        <li class="lists list-1">
+          <ul class="under-li copy-lock-options-1">
+            <li class="under-li-list clipboard-1">
+              <i class="bx bxs-copy"></i>
+            </li>
+            <li class="under-li-list lock-color-1">
+              <i class="bx bxs-lock-alt"></i>
+            </li>
+            <li class="under-li-list cut-section"><i class='bx bx-cloud-download'></i></li>
+          </ul>
+          <ul class="color-prop">
+            <li class="under-color-prop">
+              <input type="text" class="copy-text copy-text-1" value="4a5759" />
+            </li>
+          </ul>
+        </li>
+
+        <li class="lists list-2">
+          <ul class="under-li copy-lock-options-2">
+            <li class="under-li-list clipboard-2">
+              <i class="bx bxs-copy"></i>
+            </li>
+            <li class="under-li-list lock-color-2">
+              <i class="bx bxs-lock-alt"></i>
+            </li>
+            <li class="under-li-list cut-section"><i class='bx bx-cloud-download'></i></li>
+          </ul>
+          <ul class="color-prop">
+            <li class="under-color-prop">
+              <input type="text" class="copy-text copy-text-2" value="3b6789" />
+            </li>
+          </ul>
+        </li>
+
+        <li class="lists list-3">
+          <ul class="under-li copy-lock-options-3">
+            <li class="under-li-list clipboard-3">
+              <i class="bx bxs-copy"></i>
+            </li>
+            <li class="under-li-list lock-color-3">
+              <i class="bx bxs-lock-alt"></i>
+            </li>
+            <li class="under-li-list cut-section"><i class='bx bx-cloud-download'></i></li>
+          </ul>
+          <ul class="color-prop">
+            <li class="under-color-prop">
+              <input type="text" class="copy-text copy-text-3" value="2cf568" />
+            </li>
+          </ul>
+        </li>
+
+        <li class="lists list-4">
+          <ul class="under-li copy-lock-options-4">
+            <li class="under-li-list clipboard-4">
+              <i class="bx bxs-copy"></i>
+            </li>
+            <li class="under-li-list lock-color-4">
+              <i class="bx bxs-lock-alt"></i>
+            </li>
+            <li class="under-li-list cut-section"><i class='bx bx-cloud-download'></i></i></li>
+          </ul>
+          <ul class="color-prop">
+            <li class="under-color-prop">
+              <input type="text" class="copy-text copy-text-4" value="5fb782" />
+            </li>
+          </ul>
+        </li>
+
+        <li class="lists list-5">
+          <ul class="under-li copy-lock-options-5">
+            <li class="under-li-list clipboard-5">
+              <i class="bx bxs-copy"></i>
+            </li>
+            <li class="under-li-list lock-color-5">
+              <i class="bx bxs-lock-alt"></i>
+            </li>
+            <li class="under-li-list cut-section"><i class='bx bx-cloud-download'></i></li>
+          </ul>
+          <ul class="color-prop">
+            <li class="under-color-prop">
+              <input type="text" class="copy-text copy-text-5" value="2b45ed" />
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="generate-section">
+      <button class="generate">Generate</button>
+      <button class="add-to-fav"><i class="bx bx-heart"></i></button>
+      <button class="saved-colors"><i class="bx bxs-bookmarks"></i></button>
+    </div>
+
+    <form class="form-section">
+      <div class="form-heading">
+        <h2>Ready to save</h2>
+      </div>
+      <div class="first-section">
+        <input type="text" class="first input" />
+      </div>
+      <div class="second-section">
+        <input type="text" class="second input" />
+      </div>
+      <div class="third-section">
+        <input type="text" class="third input" />
+      </div>
+      <div class="fourth-section">
+        <input type="text" class="fourth input" />
+      </div>
+      <div class="fifth-section">
+        <input type="text" class="fifth input" />
+      </div>
+      <div class="submit-btn">
+        <button class="submit-color">Submit</button>
+      </div>
+    </form>
+
+    <section class="color-container">
+      <div class="saved-colors-heading">
+        <h2>Your Colors 😍</h2>
+        <button class="clear-all"><i class="bx bxs-trash"></i></button>
+      </div>
+      <div class="line-seprator"></div>
+      <div class="saved-colors-container"></div>
+    </section>
+    <div class="overlay overlay-hidden"></div>
+
+    <script src="randomColor.js"></script>
+  </body>
+</html>
