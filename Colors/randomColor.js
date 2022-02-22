@@ -231,17 +231,29 @@ const deleteMe = function () {
 //FUNCTIONALITY: Added to your Saved colors bag section functionality
 submitColorBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  let html = `
-  <div class="saved-color">
-  <input style="background-color: #${copyTextS1.value};" type="text" class="first-color-saved color-input" />
+  const id = new Date().getTime().toString();
+
+  const element = document.createElement("div");
+  const attribute = document.createAttribute("data-id");
+  attribute.value = id;
+  element.setAttributeNode(attribute);
+  element.classList.add("saved-color");
+
+  element.innerHTML = `<input style="background-color: #${copyTextS1.value};" type="text" class="first-color-saved color-input" />
   <input style="background-color: #${copyTextS2.value};" type="text" class="second-color-saved color-input" />
   <input style="background-color: #${copyTextS3.value};" type="text" class="third-color-saved color-input" />
   <input style="background-color: #${copyTextS4.value};" type="text" class="fourth-color-saved color-input" />
   <input style="background-color: #${copyTextS5.value};" type="text" class="fifth-color-saved color-input" />
-  <button class="delete"><i class="bx bxs-trash"></i></button>
-  </div>`;
+  <button class="delete"><i class="bx bxs-trash"></i></button>`;
 
-  insertColor.insertAdjacentHTML("beforeend", html);
+  insertColor.appendChild(element);
+
+  const deleteMe = element.querySelector(".delete");
+  const removeItem = deleteMe.parentElement;
+  console.log(removeItem);
+  deleteMe.addEventListener("click", () => {
+    insertColor.removeChild(removeItem);
+  });
 
   alertFunc("Your color has been saved 🎉", "hide-alert");
 
@@ -249,12 +261,12 @@ submitColorBtn.addEventListener("click", (e) => {
   Overlay.classList.toggle("overlay-hidden");
 });
 
-const clearAllItems = function () {
+function clearAllItems() {
   const savedColors = document.querySelectorAll(".saved-color");
   if (savedColors.length > 0) {
     savedColors.forEach((element) => {
       insertColor.removeChild(element);
     });
   }
-};
+}
 clearAll.addEventListener("click", clearAllItems);
