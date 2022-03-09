@@ -1,0 +1,57 @@
+* {
+  padding: 0%;
+  margin: 0%;
+}
+
+.main-section {
+  text-align: center;
+  padding: 3rem;
+}
+
+.heading {
+  padding: 1rem;
+  width: 50%;
+  margin: auto;
+}
+
+.form-content {
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.text {
+  font-size: 20px;
+  color: darkcyan;
+  text-transform: uppercase;
+}
+
+#input {
+  font-size: 16px;
+  border-radius: 6px;
+  padding: 5px 10px;
+}
+
+.btn {
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 16px;
+  text-transform: uppercase;
+  background: transparent;
+}
+
+.article-section {
+  width: 50%;
+  height: auto;
+  text-align: center;
+  margin-top: 5 rem;
+  font-size: 16px;
+  letter-spacing: normal;
+  margin: auto;
+}
+
+.result {
+  padding: 1rem;
+  margin-top: 2rem;
+}
