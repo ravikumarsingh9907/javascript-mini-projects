@@ -31,3 +31,10 @@ Features:
 Features:
 >> Allows to generate paragraphs.
 ```
+
+## Counter with color flipper 👉 **[Live Demo](https://ravikumarsingh9907.github.io/projects/Counter-with-color-flipper/)**
+
+```
+Features:
+>> Allow users to generate random color with counter.
+```
