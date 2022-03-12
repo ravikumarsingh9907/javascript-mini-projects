@@ -38,3 +38,14 @@ Features:
 Features:
 >> Allow users to generate random color with counter.
 ```
+
+## Animations on Scroll 👉 **[Live Demo](https://ravikumarsingh9907.github.io/projects/Animated-template/)**
+
+```
+Features:
+>> It consists many animation on scroll.
+
+Resources:
+>> https://michalsnik.github.io/aos/
+>> https://www.creative-tim.com/learning-lab/tailwind-starter-kit/presentation
+```
