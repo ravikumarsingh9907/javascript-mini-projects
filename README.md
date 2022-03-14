@@ -49,3 +49,10 @@ Resources:
 >> https://michalsnik.github.io/aos/
 >> https://www.creative-tim.com/learning-lab/tailwind-starter-kit/presentation
 ```
+
+## Picture In Picture (PIP) 👉 **[Live Demo](https://ravikumarsingh9907.github.io/projects/Picture-in-picture/)**
+
+```
+Features:
+>> Allows to PIP(picture in picture) Mode
+```
